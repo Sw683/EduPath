@@ -44,10 +44,14 @@
     --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 
     /* Text Colors - Warm Dune Ivory & Desert Sand Cream */
-    --color-text-main: #FFFDF7;      /* Warm sunlight ivory for titles & headings */
-    --color-text-body: #EDE4D0;      /* Warm sand cream for all body paragraphs */
-    --color-text-muted: #D5CBB5;     /* Warm desert dune beige for descriptions & subtitles */
-    --color-text-subtle: #B0A58D;    /* Earthen sandstone for subtle labels and timestamps */
+    --color-text-main: #FFFDF7;
+    /* Warm sunlight ivory for titles & headings */
+    --color-text-body: #EDE4D0;
+    /* Warm sand cream for all body paragraphs */
+    --color-text-muted: #D5CBB5;
+    /* Warm desert dune beige for descriptions & subtitles */
+    --color-text-subtle: #B0A58D;
+    /* Earthen sandstone for subtle labels and timestamps */
 
     /* Borders & Outlines */
     --color-border: rgba(235, 215, 175, 0.15);
@@ -114,12 +118,11 @@ body::before {
         /* Atmospheric light layer: warm sand sunlight haze from top */
         radial-gradient(ellipse at 50% 0%, rgba(239, 198, 133, 0.22) 0%, transparent 65%),
         /* Balanced ambient contrast gradient */
-        linear-gradient(180deg, 
-            rgba(18, 14, 8, 0.45) 0%, 
-            rgba(16, 20, 13, 0.58) 35%, 
-            rgba(12, 17, 10, 0.75) 70%, 
-            rgba(8, 13, 7, 0.88) 100%
-        ),
+        linear-gradient(180deg,
+            rgba(18, 14, 8, 0.45) 0%,
+            rgba(16, 20, 13, 0.58) 35%,
+            rgba(12, 17, 10, 0.75) 70%,
+            rgba(8, 13, 7, 0.88) 100%),
         /* Animated game asset (local downloaded asset with CDN fallback) */
         url('images/game-animated-bg.gif');
     background-size: cover, cover, cover;
@@ -1076,9 +1079,11 @@ a:focus-visible {
     0% {
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
     }
@@ -3511,7 +3516,8 @@ a:focus-visible {
 /* Details Modal & Contributors Podium */
 .comm-video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     border-radius: var(--radius-md);
@@ -3813,7 +3819,8 @@ a:focus-visible {
     }
 
     .podium-card.rank-1 {
-        order: -1; /* Keep gold #1 on top when stacked */
+        order: -1;
+        /* Keep gold #1 on top when stacked */
         transform: none;
     }
 
@@ -3848,5 +3855,48 @@ a:focus-visible {
 
     .cta-banner-title {
         font-size: 1.8rem;
+    }
+}
+
+/* ================================
+   Mobile Responsive Fix
+   ================================ */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .container,
+    section,
+    .section,
+    .card,
+    .form-container {
+        max-width: 100%;
+    }
+
+    /* Prevent fixed desktop widths */
+    input,
+    textarea,
+    select,
+    button {
+        max-width: 100%;
     }
 }

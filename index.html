@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="EduPath - An open, beginner-friendly learning platform offering structured roadmaps in Web Development, Python, and AI.">
+    <title>EduPath - Start Your Learning Journey</title>
+    <!-- Main Stylesheet: All visual styling is kept separate in style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+         1. HEADER & NAVIGATION BAR
+         Contains the website logo, primary page navigation links, and auth buttons.
+         ========================================================================== -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Brand Logo -->
+            <a href="#home" class="logo">
+                <span class="logo-icon">🎓</span>
+                <span class="logo-text">EduPath</span>
+            </a>
+
+            <!-- Primary Navigation Links -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#community-resources" class="nav-link">Community</a></li>
+                    <li><a href="#leaderboard" class="nav-link">Leaderboard</a></li>
+                    <li><a href="#news" class="nav-link">News Nexus</a></li>
+                    <li><a href="#why-edupath" class="nav-link">About</a></li>
+                    <li><a href="#footer-contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Authentication Actions -->
+            <div class="nav-auth-actions" id="auth-nav-actions">
+                <button type="button" class="btn-auth-login" id="nav-login-btn">Login</button>
+                <button type="button" class="btn-auth-signup" id="nav-signup-btn">Sign Up</button>
+                <div class="user-greeting-badge hidden" id="user-greeting">
+                    <span class="user-greeting-name" id="greeting-username">Learner</span>
+                    <button type="button" class="btn-auth-logout" id="nav-logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         MAIN CONTENT WRAPPER
+         Wraps all primary sections of the landing page for semantic organization.
+         ========================================================================== -->
+    <main>
+
+        <!-- ==========================================================================
+             2. HERO SECTION
+             Introduces EduPath with a headline, value proposition, CTAs, and hero image.
+             ========================================================================== -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <!-- Text Content & Calls to Action -->
+                <div class="hero-text-content">
+                    <span class="hero-badge">🚀 Empower Your Tech Future</span>
+                    <h1 class="hero-headline">Master In-Demand Tech Skills with Guided Roadmaps</h1>
+                    <p class="hero-description">
+                        EduPath provides beginner-friendly pathways, curated study resources, and practical
+                        projects to take you from your very first line of code to career readiness.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#learning-path" class="btn-primary">Start Learning</a>
+                        <a href="#categories" class="btn-secondary">Explore Courses</a>
+                    </div>
+                </div>
+
+                <!-- Visual Media Reference -->
+                <div class="hero-media-wrapper">
+                    <figure class="hero-figure">
+                        <img src="images/hero.jpg" alt="Students learning modern technology together in a classroom"
+                            class="hero-image" width="650" height="420">
+                        <figcaption class="hero-caption">Join thousands of students learning modern tech skills every
+                            day.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             3. LEARNING CATEGORIES
+             Presents the three core technical domains with descriptions and action buttons.
+             ========================================================================== -->
+        <section id="categories" class="categories-section">
+            <div class="section-heading">
+                <span class="section-tag">Curated Fields</span>
+                <h2 class="section-title">Explore Learning Categories</h2>
+                <p class="section-subtitle">Choose a structured pathway tailored for beginners and future professionals.
+                </p>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Category 1: Web Development -->
+                <article class="category-card">
+                    <div class="card-image-container">
+                        <img src="images/web-development.jpg" alt="Web development workspace with code on screens"
+                            class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-info">
+                            <span class="card-icon" aria-hidden="true">🌐</span>
+                            <h3 class="card-title">Web Development</h3>
+                        </div>
+                        <p class="card-description">
+                            Learn how the modern web works. Master semantic HTML5, responsive CSS styling,
+                            and dynamic JavaScript to build fast, beautiful websites.
+                        </p>
+                        <a href="#courses" class="btn-card-explore" data-category-target="web_dev">Explore Modules</a>
+                    </div>
+                </article>
+
+                <!-- Category 2: Python Programming -->
+                <article class="category-card">
+                    <div class="card-image-container">
+                        <img src="images/python-programming.jpg" alt="Python programming code and data scripts"
+                            class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-info">
+                            <span class="card-icon" aria-hidden="true">🐍</span>
+                            <h3 class="card-title">Python Programming</h3>
+                        </div>
+                        <p class="card-description">
+                            Start with the most beginner-friendly language. Learn core syntax, problem solving,
+                            data handling, and automation scripting from scratch.
+                        </p>
+                        <a href="#courses" class="btn-card-explore" data-category-target="python">Explore Modules</a>
+                    </div>
+                </article>
+
+                <!-- Category 3: AI & Machine Learning -->
+                <article class="category-card">
+                    <div class="card-image-container">
+                        <img src="images/ai-machine-learning.jpg"
+                            alt="Abstract digital neural network representing machine learning" class="card-image">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-info">
+                            <span class="card-icon" aria-hidden="true">🤖</span>
+                            <h3 class="card-title">AI &amp; Machine Learning</h3>
+                        </div>
+                        <p class="card-description">
+                            Discover intelligent systems. Explore predictive models, data analysis basics,
+                            and modern artificial intelligence concepts with hands-on practice.
+                        </p>
+                        <a href="#courses" class="btn-card-explore" data-category-target="ai_ml">Explore Modules</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CURATED LEARNING SYSTEM SECTION
+             Interactive modules with category filters and persistent status tracking.
+             ========================================================================== -->
+        <section id="courses" class="courses-system-section">
+            <div class="section-heading">
+                <span class="section-tag">Interactive Learning System</span>
+                <h2 class="section-title">Curated Courses &amp; Modules</h2>
+                <p class="section-subtitle">
+                    Track your personal progress across vetted resources from Harvard, Coursera, YouTube, and Official
+                    Documentation.
+                </p>
+            </div>
+
+            <!-- Learning System Filter Controls -->
+            <div class="courses-controls">
+                <!-- Category Filter Pills -->
+                <div class="category-filters-container">
+                    <span class="filters-label">Domain:</span>
+                    <div class="course-filter-group" role="tablist" aria-label="Course Category Filters">
+                        <button type="button" class="btn-course-filter active" data-category="all" role="tab"
+                            aria-selected="true">🌐 All Topics</button>
+                        <button type="button" class="btn-course-filter" data-category="web_dev" role="tab"
+                            aria-selected="false">💻 Web Development</button>
+                        <button type="button" class="btn-course-filter" data-category="python" role="tab"
+                            aria-selected="false">🐍 Python</button>
+                        <button type="button" class="btn-course-filter" data-category="ai_ml" role="tab"
+                            aria-selected="false">🤖 AI &amp; Machine Learning</button>
+                    </div>
+                </div>
+
+                <!-- Status Filter Pills -->
+                <div class="status-filters-container">
+                    <span class="filters-label">Status:</span>
+                    <div class="course-status-filters" role="tablist" aria-label="Course Status Filters">
+                        <button type="button" class="btn-status-filter active" data-status="all">All</button>
+                        <button type="button" class="btn-status-filter" data-status="not_started">⭕ Not Started</button>
+                        <button type="button" class="btn-status-filter" data-status="in_progress">⏳ In Progress</button>
+                        <button type="button" class="btn-status-filter" data-status="completed">✅ Completed</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Modules Grid Container -->
+            <div id="courses-grid" class="courses-grid">
+                <!-- Course cards populated dynamically by script.js -->
+                <div class="courses-loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Loading curated learning modules...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             4. WHY EDUPATH
+             Explains the five core pillars of how EduPath helps students succeed.
+             ========================================================================== -->
+        <section id="why-edupath" class="why-section">
+            <div class="section-heading">
+                <span class="section-tag">Our Mission</span>
+                <h2 class="section-title">Why Learn With EduPath?</h2>
+                <p class="section-subtitle">Everything you need to grow from beginner to industry-ready builder.</p>
+            </div>
+
+            <div class="why-grid">
+                <!-- Pillar 1 -->
+                <div class="why-card">
+                    <div class="why-icon-box">💡</div>
+                    <h3 class="why-card-title">Learn In-Demand Skills</h3>
+                    <p class="why-card-text">
+                        Gain practical, real-world abilities in web engineering, programming, and data science that
+                        employers look for.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="why-card">
+                    <div class="why-icon-box">🧭</div>
+                    <h3 class="why-card-title">Find Structured Resources</h3>
+                    <p class="why-card-text">
+                        Stop feeling overwhelmed by random tutorials. Follow organized, progressive roadmaps curated for
+                        clarity.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="why-card">
+                    <div class="why-icon-box">🔍</div>
+                    <h3 class="why-card-title">Discover Top Courses</h3>
+                    <p class="why-card-text">
+                        Get guided access to reputable educational material from leading global universities and
+                        industry platforms.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="why-card">
+                    <div class="why-icon-box">🔨</div>
+                    <h3 class="why-card-title">Build Real Projects</h3>
+                    <p class="why-card-text">
+                        Reinforce your knowledge by creating genuine portfolio pieces you can proudly show to mentors
+                        and recruiters.
+                    </p>
+                </div>
+
+                <!-- Pillar 5 -->
+                <div class="why-card">
+                    <div class="why-icon-box">💼</div>
+                    <h3 class="why-card-title">Prepare for Careers</h3>
+                    <p class="why-card-text">
+                        Develop technical problem-solving habits and workflow best practices needed for interviews and
+                        job success.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             5. LEARNING RESOURCES
+             Showcases handpicked, reputable external learning platforms.
+             ========================================================================== -->
+        <section id="resources" class="resources-section">
+            <div class="section-heading">
+                <span class="section-tag">Curated Material</span>
+                <h2 class="section-title">Recommended Learning Resources</h2>
+                <p class="section-subtitle">Expand your knowledge with trusted, world-class educational hubs.</p>
+            </div>
+
+            <div class="resources-grid">
+                <!-- Resource 1: CS50 -->
+                <article class="resource-card">
+                    <div class="resource-badge">University Gold Standard</div>
+                    <h3 class="resource-name">Harvard CS50</h3>
+                    <p class="resource-desc">
+                        Harvard University's legendary open introduction to computer science, algorithmic thinking, and
+                        computational problem solving.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="https://cs50.harvard.edu/" target="_blank" rel="noopener noreferrer"
+                            class="btn-resource-visit">Visit Resource</a>
+                        <a href="#why-edupath" class="btn-resource-info">Learn More</a>
+                    </div>
+                </article>
+
+                <!-- Resource 2: Coursera -->
+                <article class="resource-card">
+                    <div class="resource-badge">Accredited Programs</div>
+                    <h3 class="resource-name">Coursera Specializations</h3>
+                    <p class="resource-desc">
+                        Structured technical certificates and professional specializations taught by leading university
+                        professors and industry pioneers.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer"
+                            class="btn-resource-visit">Visit Resource</a>
+                        <a href="#why-edupath" class="btn-resource-info">Learn More</a>
+                    </div>
+                </article>
+
+                <!-- Resource 3: YouTube Community -->
+                <article class="resource-card">
+                    <div class="resource-badge">Free Community Guides</div>
+                    <h3 class="resource-name">YouTube Developer Channels</h3>
+                    <p class="resource-desc">
+                        Free visual breakdowns, step-by-step code-alongs, and architectural walkthroughs created by
+                        experienced global developers.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-resource-visit">Visit Resource</a>
+                        <a href="#why-edupath" class="btn-resource-info">Learn More</a>
+                    </div>
+                </article>
+
+                <!-- Resource 4: Official Documentation -->
+                <article class="resource-card">
+                    <div class="resource-badge">Primary Source</div>
+                    <h3 class="resource-name">Official Documentation</h3>
+                    <p class="resource-desc">
+                        The ultimate source of truth: MDN Web Docs, Python.org, and official language specifications for
+                        reliable referencing.
+                    </p>
+                    <div class="resource-actions">
+                        <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer"
+                            class="btn-resource-visit">Visit Resource</a>
+                        <a href="#why-edupath" class="btn-resource-info">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             COMMUNITY LEARNING RESOURCES SECTION
+             Peer-recommended YouTube study resources with duplicate detection,
+             recommendation votes, and Top-3 early contributor recognition.
+             ========================================================================== -->
+        <section id="community-resources" class="community-resources-section">
+            <div class="section-heading">
+                <span class="section-tag">Peer Recommendations</span>
+                <h2 class="section-title">Community Learning Resources</h2>
+                <p class="section-subtitle">
+                    Discover study resources recommended by the EduPath community.
+                </p>
+                <div class="community-header-action">
+                    <button type="button" class="btn-primary btn-suggest-resource" id="btn-open-suggest-modal">
+                        + Recommend a Study Resource
+                    </button>
+                </div>
+            </div>
+
+            <!-- Discovery Controls: Categories & Sorting -->
+            <div class="community-controls">
+                <div class="category-filters-container">
+                    <span class="filters-label">Category:</span>
+                    <div class="community-filter-group" id="community-category-filters">
+                        <button type="button" class="btn-community-filter active" data-category="all">All</button>
+                        <button type="button" class="btn-community-filter" data-category="web_dev">Web Development</button>
+                        <button type="button" class="btn-community-filter" data-category="python">Python</button>
+                        <button type="button" class="btn-community-filter" data-category="ai_ml">AI/ML</button>
+                        <button type="button" class="btn-community-filter" data-category="data_science">Data Science</button>
+                        <button type="button" class="btn-community-filter" data-category="programming">Programming</button>
+                        <button type="button" class="btn-community-filter" data-category="other">Other</button>
+                    </div>
+                </div>
+
+                <div class="sort-filters-container">
+                    <span class="filters-label">Sort:</span>
+                    <div class="community-sort-group" id="community-sort-filters">
+                        <button type="button" class="btn-community-sort active" data-sort="most_recommended">Most Recommended</button>
+                        <button type="button" class="btn-community-sort" data-sort="recently_added">Newest</button>
+                        <button type="button" class="btn-community-sort" data-sort="community_verified">Community Verified</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Resource Grid & Feedback Containers -->
+            <div id="community-resources-container">
+                <div class="community-loading-state" id="community-loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Loading community resources...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             NEWS NEXUS SECTION
+             Curated, auto-updating trending articles across Tech, Gaming, Politics & Science.
+             ========================================================================== -->
+        <section id="news" class="news-section">
+            <div class="section-heading">
+                <span class="section-tag">Current Insights</span>
+                <h2 class="section-title">EduPath News Nexus</h2>
+                <p class="section-subtitle">
+                    Stay informed with auto-updated, trending knowledge across technology, gaming, world affairs, and
+                    science.
+                </p>
+            </div>
+
+            <!-- Topic Preference Selector (Asks user which type of news they consider) -->
+            <div class="news-controls">
+                <div class="topic-selector-container">
+                    <span class="topic-selector-label">Choose your knowledge focus:</span>
+                    <div class="topic-filters" role="tablist" aria-label="News Category Filters">
+                        <button type="button" class="btn-topic-filter active" data-category="all" role="tab"
+                            aria-selected="true">🌐 All Topics</button>
+                        <button type="button" class="btn-topic-filter" data-category="tech" role="tab"
+                            aria-selected="false">🤖 Tech &amp; AI</button>
+                        <button type="button" class="btn-topic-filter" data-category="gaming" role="tab"
+                            aria-selected="false">🎮 Gaming</button>
+                        <button type="button" class="btn-topic-filter" data-category="politics" role="tab"
+                            aria-selected="false">🏛️ World &amp; Politics</button>
+                        <button type="button" class="btn-topic-filter" data-category="science" role="tab"
+                            aria-selected="false">🔬 Science &amp; Edu</button>
+                    </div>
+                </div>
+
+                <!-- Live Auto-Update Status Indicator -->
+                <div class="news-status-bar">
+                    <div class="status-indicator">
+                        <span class="status-pulse-dot" aria-hidden="true"></span>
+                        <span class="status-text">Live Auto-Update: <strong>Active</strong></span>
+                    </div>
+                    <div class="status-meta">
+                        <span id="news-update-timestamp" class="status-timestamp">Updated just now</span>
+                        <button type="button" id="news-refresh-btn" class="btn-news-refresh"
+                            title="Simulate fetching the latest trending searched topics">
+                            🔄 Refresh Feed
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News & Articles Grid -->
+            <div class="news-grid">
+                <!-- Article 1: Tech & AI -->
+                <article class="news-card" data-category="tech">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-tech">🤖 Tech &amp; AI</span>
+                        <span class="news-trending-tag">🔥 Trending #1</span>
+                    </div>
+                    <h3 class="news-card-title">Next-Gen AI Models Revolutionize Developer Education</h3>
+                    <p class="news-card-excerpt">
+                        New assistive coding platforms enable beginners to visualize code execution, diagnose bugs in
+                        real-time, and accelerate learning velocity.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 3 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="Next-Gen AI in Education"
+                            data-takeaway="AI tools are powerful pair-programmers. Focus on understanding foundational logic so you can verify and guide generated code effectively.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2: Gaming -->
+                <article class="news-card" data-category="gaming">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-gaming">🎮 Gaming</span>
+                        <span class="news-trending-tag">⭐ Top Searched</span>
+                    </div>
+                    <h3 class="news-card-title">Real-Time Game Engines Bring Photorealism to Web Browsers</h3>
+                    <p class="news-card-excerpt">
+                        WebGPU and WebAssembly advancements now allow complex 3D virtual worlds and physical simulations
+                        to run smoothly inside everyday web browsers.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 4 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="Modern Web Graphics &amp; Gaming"
+                            data-takeaway="Browsers are no longer just for static text. Modern JavaScript, WebGPU, and Canvas allow developers to build full-scale games directly for the web.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3: World & Politics -->
+                <article class="news-card" data-category="politics">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-politics">🏛️ World &amp; Politics</span>
+                        <span class="news-trending-tag">📈 Global Policy</span>
+                    </div>
+                    <h3 class="news-card-title">Global Data Governance: Balancing Innovation and Digital Privacy</h3>
+                    <p class="news-card-excerpt">
+                        International policymakers draft updated frameworks on user data ownership, algorithmic
+                        transparency, and cross-border digital rights.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 5 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="Digital Privacy &amp; Tech Policy"
+                            data-takeaway="Building software requires ethical responsibility. Understanding privacy laws helps you architect secure apps that protect user trust.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 4: Science & Education -->
+                <article class="news-card" data-category="science">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-science">🔬 Science &amp; Edu</span>
+                        <span class="news-trending-tag">💡 Breakthrough</span>
+                    </div>
+                    <h3 class="news-card-title">Quantum Computing Simulators Open for Student Research</h3>
+                    <p class="news-card-excerpt">
+                        Cloud-based quantum computing interfaces allow university students and self-learners to run
+                        basic quantum algorithms and experiment with qubits.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 4 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="Quantum Computing Concepts"
+                            data-takeaway="Quantum algorithms solve specific exponential problems faster than classical computers using superposition and entanglement.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 5: Gaming -->
+                <article class="news-card" data-category="gaming">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-gaming">🎮 Gaming</span>
+                        <span class="news-trending-tag">🕹️ Industry Trend</span>
+                    </div>
+                    <h3 class="news-card-title">Indie Game Developers Leverage Open Source Frameworks</h3>
+                    <p class="news-card-excerpt">
+                        Open-source game libraries and lightweight toolkits empower small independent teams to build
+                        multiplayer titles without massive production budgets.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 3 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="The Power of Open Source in Gaming"
+                            data-takeaway="Community-driven tools lower the barrier to entry. You can start building simple games using pure HTML Canvas and JavaScript today.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 6: World & Politics -->
+                <article class="news-card" data-category="politics">
+                    <div class="news-card-header">
+                        <span class="news-category-badge badge-politics">🏛️ World &amp; Politics</span>
+                        <span class="news-trending-tag">🌍 Civic Tech</span>
+                    </div>
+                    <h3 class="news-card-title">Civic Tech Platforms Expand Public Access to Government Budgets</h3>
+                    <p class="news-card-excerpt">
+                        Civic technologists worldwide publish interactive data portals that translate dense municipal
+                        financial records into clear charts for citizens.
+                    </p>
+                    <div class="news-card-footer">
+                        <span class="news-read-time">⏱️ 3 min read</span>
+                        <button type="button" class="btn-news-takeaway" data-title="Civic Technology Impact"
+                            data-takeaway="Coding is a tool for civic good. Data visualization and web development can make public information accessible to millions.">
+                            Knowledge Takeaway
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             6. LEARNING PATH SECTION
+             Visual step-by-step roadmap demonstrating the student learning trajectory.
+             ========================================================================== -->
+        <section id="learning-path" class="path-section">
+            <div class="section-heading">
+                <span class="section-tag">Step-by-Step Blueprint</span>
+                <h2 class="section-title">Your EduPath Learning Journey</h2>
+                <p class="section-subtitle">Follow this proven 5-step roadmap to achieve your coding goals.</p>
+            </div>
+
+            <!-- Ordered list ensures semantic progression of steps -->
+            <ol class="path-timeline">
+                <!-- Step 1 -->
+                <li class="path-step">
+                    <div class="step-marker">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Start Learning</h3>
+                        <p class="step-text">Define your goal, choose your preferred tech domain, and set up your study
+                            environment.</p>
+                    </div>
+                </li>
+
+                <!-- Step 2 -->
+                <li class="path-step">
+                    <div class="step-marker">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Learn Fundamentals</h3>
+                        <p class="step-text">Understand core syntax, data structures, and the basic principles of
+                            programming.</p>
+                    </div>
+                </li>
+
+                <!-- Step 3 -->
+                <li class="path-step">
+                    <div class="step-marker">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Practice Daily</h3>
+                        <p class="step-text">Solve coding exercises, debug real errors, and build muscle memory through
+                            continuous coding.</p>
+                    </div>
+                </li>
+
+                <!-- Step 4 -->
+                <li class="path-step">
+                    <div class="step-marker">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Build Projects</h3>
+                        <p class="step-text">Synthesize what you learned by developing functional, portfolio-ready
+                            applications.</p>
+                    </div>
+                </li>
+
+                <!-- Step 5 -->
+                <li class="path-step">
+                    <div class="step-marker">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Prepare for Career</h3>
+                        <p class="step-text">Polish your portfolio, practice technical interview questions, and showcase
+                            your work.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ==========================================================================
+             7. STREAK / PROGRESS PREVIEW (Visual Preview Only)
+             Simulates gamification and progress metrics for learner motivation.
+             ========================================================================== -->
+        <section id="progress-preview" class="progress-section">
+            <div class="section-heading">
+                <span class="section-tag" id="dashboard-section-tag">Learner Dashboard Preview</span>
+                <h2 class="section-title">Stay Motivated &amp; Track Growth</h2>
+                <p class="section-subtitle">Visual feedback that helps you turn daily study into a lifelong habit.</p>
+            </div>
+
+            <div class="progress-preview-card">
+                <!-- Metric 1: Streak -->
+                <div class="metric-item metric-item-streak">
+                    <div class="metric-icon">🔥</div>
+                    <div class="metric-info">
+                        <div class="metric-header-row">
+                            <span class="metric-label">Current Streak</span>
+                            <span class="streak-status-tag" id="dashboard-streak-status-tag">Activity needed
+                                today</span>
+                        </div>
+                        <strong class="metric-value" id="dashboard-streak-value">0 Days Active</strong>
+                        <div class="streak-meta-row">
+                            <span class="streak-sub-stat" id="dashboard-longest-streak-value">⚡ Longest: 0 Days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metric 2: Progress -->
+                <div class="metric-item">
+                    <div class="metric-info">
+                        <div class="metric-header-row">
+                            <span class="metric-label">Course Progress</span>
+                            <span class="progress-sub-count" id="dashboard-courses-count-label">0 of 12 Completed</span>
+                        </div>
+                        <strong class="metric-value" id="dashboard-progress-value">0% Completed</strong>
+                        <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100" aria-label="Course completion progress">
+                            <div class="progress-bar-fill" id="dashboard-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <div class="progress-stats-breakdown" id="dashboard-progress-breakdown">
+                            <span id="dashboard-in-progress-count">0 In Progress</span> • <span
+                                id="dashboard-completed-count">0 Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metric 3: Total Points -->
+                <div class="metric-item metric-item-points">
+                    <div class="metric-icon">⭐</div>
+                    <div class="metric-info">
+                        <div class="metric-header-row">
+                            <span class="metric-label">Total Points</span>
+                            <span class="points-verified-tag">✓ Verified</span>
+                        </div>
+                        <strong class="metric-value" id="dashboard-total-points-value">0 ⭐</strong>
+                        <div class="points-period-breakdown">
+                            <span class="points-sub-pill" id="dashboard-weekly-points-badge"
+                                title="Verified points earned in last 7 days">📅 Week: 0 pts</span>
+                            <span class="points-sub-pill" id="dashboard-monthly-points-badge"
+                                title="Verified points earned in last 30 days">📅 Month: 0 pts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metric 4: Current Rank -->
+                <div class="metric-item metric-item-rank">
+                    <div class="metric-icon">🏆</div>
+                    <div class="metric-info">
+                        <div class="metric-header-row">
+                            <span class="metric-label">Current Rank</span>
+                            <span class="rank-tier-pill" id="dashboard-rank-tier-pill">Tier V</span>
+                        </div>
+                        <strong class="metric-value" id="dashboard-rank-tier-value">🌱 Novice</strong>
+                        <div class="rank-meta-row">
+                            <span class="rank-pos-badge" id="dashboard-leaderboard-pos">#— Leaderboard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Learner Profile Summary (Connected to Authenticated User) -->
+            <div id="dashboard-profile-card" class="dashboard-profile-card hidden">
+                <div class="profile-card-header">
+                    <div class="profile-card-title-group">
+                        <span class="profile-badge-icon">🎯</span>
+                        <div>
+                            <h3 class="profile-card-title">Personalized Learning Pathway</h3>
+                            <p class="profile-card-subtitle">Customized according to your 3-step onboarding profile</p>
+                        </div>
+                    </div>
+                    <button type="button" id="btn-edit-onboarding" class="btn-profile-edit">
+                        ✏️ Update Profile
+                    </button>
+                </div>
+                <div class="profile-card-grid">
+                    <div class="profile-card-item">
+                        <span class="profile-item-label">Current Role</span>
+                        <strong class="profile-item-value" id="profile-role-display">—</strong>
+                    </div>
+                    <div class="profile-card-item">
+                        <span class="profile-item-label">Primary Goal</span>
+                        <strong class="profile-item-value" id="profile-goal-display">—</strong>
+                    </div>
+                    <div class="profile-card-item profile-item-full">
+                        <span class="profile-item-label">Selected Tech Interests</span>
+                        <div class="profile-tags-container" id="profile-interests-display">
+                            <!-- Interest badges generated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Recent Learning Activity Feed (Connected to Authenticated User) -->
+            <div id="dashboard-activity-card" class="dashboard-activity-card hidden">
+                <div class="activity-card-header">
+                    <div class="activity-card-title-group">
+                        <span class="activity-badge-icon">📊</span>
+                        <div>
+                            <h3 class="activity-card-title">Recent Learning Activity</h3>
+                            <p class="activity-card-subtitle">Verified learning milestones that count toward your daily
+                                streak</p>
+                        </div>
+                    </div>
+                    <div class="activity-quick-actions">
+                        <button type="button" id="btn-open-quiz" class="btn-quick-activity"
+                            title="Take a short knowledge check">
+                            🧠 Take Quick Quiz
+                        </button>
+                        <button type="button" id="btn-open-project" class="btn-quick-activity"
+                            title="Submit a project milestone">
+                            🚀 Submit Capstone Project
+                        </button>
+                    </div>
+                </div>
+                <div id="activity-feed-list" class="activity-feed-list">
+                    <!-- Dynamic activity items rendered here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             LEADERBOARD & COMMUNITY RANKINGS SECTION
+             Verified learner standings based on authentic milestones and activities.
+             ========================================================================== -->
+        <section id="leaderboard" class="leaderboard-section">
+            <div class="section-heading">
+                <span class="section-tag">Verified Community Standing</span>
+                <h2 class="section-title">EduPath Global Leaderboard</h2>
+                <p class="section-subtitle">
+                    Rankings are calculated strictly from verified course modules, quizzes, and completed capstones.
+                </p>
+            </div>
+
+            <!-- Anti-Abuse Integrity Pill -->
+            <div class="leaderboard-integrity-banner">
+                <span class="integrity-icon">🛡️</span>
+                <span class="integrity-text">
+                    <strong>Tamper-Proof Integrity:</strong> Points and ranks cannot be modified from the frontend. All
+                    learning activity is verified and logged in our server ledger with anti-spam protections.
+                </span>
+            </div>
+
+            <!-- Period Filter Controls & Point Rules Legend -->
+            <div class="leaderboard-controls">
+                <div class="period-tabs-group" role="tablist" aria-label="Leaderboard timeframe selection">
+                    <button type="button" class="btn-period-tab active" data-period="all" role="tab"
+                        aria-selected="true">
+                        ⭐ All-Time
+                    </button>
+                    <button type="button" class="btn-period-tab" data-period="monthly" role="tab" aria-selected="false">
+                        📅 This Month
+                    </button>
+                    <button type="button" class="btn-period-tab" data-period="weekly" role="tab" aria-selected="false">
+                        ⚡ This Week
+                    </button>
+                </div>
+
+                <!-- Points Value Legend -->
+                <div class="leaderboard-point-rules" title="Official Point Schedule">
+                    <span class="point-rule-pill">Module: +100</span>
+                    <span class="point-rule-pill">Quiz: +50</span>
+                    <span class="point-rule-pill">Course: +200</span>
+                    <span class="point-rule-pill">Project: +150</span>
+                    <span class="point-rule-pill">Daily Bonus: +10</span>
+                </div>
+            </div>
+
+            <!-- Current User Quick Standing Banner (Visible when logged in) -->
+            <div id="leaderboard-user-banner" class="leaderboard-user-banner hidden">
+                <div class="user-banner-left">
+                    <span class="user-banner-avatar">👤</span>
+                    <div>
+                        <div class="user-banner-name-row">
+                            <strong class="user-banner-name" id="user-banner-name">Learner</strong>
+                            <span class="user-banner-tier-tag" id="user-banner-tier">🌱 Novice</span>
+                        </div>
+                        <p class="user-banner-subtext" id="user-banner-subtext">Keep completing modules to climb the
+                            rankings!</p>
+                    </div>
+                </div>
+                <div class="user-banner-stats">
+                    <div class="user-banner-stat-box">
+                        <span class="stat-box-label">Your Rank</span>
+                        <strong class="stat-box-value" id="user-banner-rank">#—</strong>
+                    </div>
+                    <div class="user-banner-stat-box">
+                        <span class="stat-box-label">Verified Points</span>
+                        <strong class="stat-box-value" id="user-banner-points">0 ⭐</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top 3 Podium Highlights -->
+            <div id="leaderboard-podium" class="leaderboard-podium">
+                <!-- Injected dynamically by script.js: Silver #2, Gold #1, Bronze #3 -->
+            </div>
+
+            <!-- Full Leaderboard Table Container -->
+            <div class="leaderboard-table-card">
+                <div class="table-responsive">
+                    <table class="leaderboard-table" id="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-rank">Rank</th>
+                                <th scope="col" class="col-learner">Learner</th>
+                                <th scope="col" class="col-tier">Current Rank Tier</th>
+                                <th scope="col" class="col-milestones">Verified Milestones</th>
+                                <th scope="col" class="col-points">Verified Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-table-body">
+                            <!-- Populated dynamically by script.js -->
+                            <tr>
+                                <td colspan="5" class="table-loading-cell">
+                                    <div class="loading-spinner"></div>
+                                    <span>Loading verified community rankings...</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             8. FEEDBACK & WEBSITE IMPROVEMENT SECTION
+             Allows learners and visitors to rate experience, suggest topics, and help improve EduPath.
+             ========================================================================== -->
+        <section id="feedback" class="feedback-section">
+            <div class="section-heading">
+                <span class="section-tag">Learner Feedback &amp; Suggestions</span>
+                <h2 class="section-title">Help Shape the Future of EduPath</h2>
+                <p class="section-subtitle">Your voice drives our roadmap. Share your experience and vote on which
+                    technologies we should build next.</p>
+            </div>
+
+            <div class="feedback-container">
+                <div class="feedback-card">
+                    <!-- Success confirmation banner -->
+                    <div id="feedback-success-banner" class="feedback-success-banner hidden" role="status">
+                        <span class="success-banner-icon">🎉</span>
+                        <div>
+                            <h3 class="success-banner-title">Thank You for Your Feedback!</h3>
+                            <p class="success-banner-text">Your response has been saved. We analyze every suggestion to
+                                make EduPath better for everyone.</p>
+                        </div>
+                    </div>
+
+                    <form id="feedback-form" class="feedback-form">
+                        <!-- Part 1: Experience Rating -->
+                        <div class="feedback-group">
+                            <label class="feedback-label">1. How would you rate your overall experience with
+                                EduPath?</label>
+                            <div class="star-rating-container" id="star-rating-group" role="radiogroup"
+                                aria-label="Overall satisfaction rating out of 5 stars">
+                                <button type="button" class="btn-star" data-rating="1"
+                                    aria-label="1 star - Needs Work">★</button>
+                                <button type="button" class="btn-star" data-rating="2"
+                                    aria-label="2 stars - Fair">★</button>
+                                <button type="button" class="btn-star" data-rating="3"
+                                    aria-label="3 stars - Good">★</button>
+                                <button type="button" class="btn-star" data-rating="4"
+                                    aria-label="4 stars - Great">★</button>
+                                <button type="button" class="btn-star" data-rating="5"
+                                    aria-label="5 stars - Excellent">★</button>
+                                <span class="rating-feedback-text" id="rating-feedback-label">Click a star to rate
+                                    (1–5)</span>
+                            </div>
+                            <input type="hidden" id="feedback-rating-value" name="rating" value="5" required>
+                        </div>
+
+                        <!-- Part 2: Feedback Category -->
+                        <div class="feedback-group">
+                            <label for="feedback-category-select" class="feedback-label">2. What area does your feedback
+                                primarily relate to?</label>
+                            <select id="feedback-category-select" class="form-input-select" required>
+                                <option value="Course Quality">📚 Course &amp; Curriculum Quality</option>
+                                <option value="Learning Paths & Streaks">⚡ Learning Paths, Quizzes &amp; Daily Streaks
+                                </option>
+                                <option value="Website Usability">🎨 Website Design, Layout &amp; Speed</option>
+                                <option value="New Feature Request">💡 New Feature or Capability Idea</option>
+                                <option value="Bug Report">🐛 Technical Bug or Broken Link</option>
+                                <option value="General Feedback">💬 General Thoughts &amp; Encouragement</option>
+                            </select>
+                        </div>
+
+                        <!-- Part 3: Website Improvement Question 1 (Topics to add next) -->
+                        <div class="feedback-group">
+                            <label class="feedback-label">3. Website Improvement: Which topics or technologies should we
+                                add next?</label>
+                            <p class="feedback-hint">Select all subjects you would be eager to learn on EduPath:</p>
+                            <div class="improvement-topics-grid">
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic"
+                                        value="Cloud & DevOps (AWS/Docker/K8s)">
+                                    <span class="topic-chip-text">☁️ Cloud &amp; DevOps (AWS/Docker/K8s)</span>
+                                </label>
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic" value="Rust & Systems Programming">
+                                    <span class="topic-chip-text">🦀 Rust &amp; Systems Programming</span>
+                                </label>
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic"
+                                        value="Mobile Apps (Flutter/React Native)">
+                                    <span class="topic-chip-text">📱 Mobile Apps (Flutter/React Native)</span>
+                                </label>
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic"
+                                        value="Data Engineering & Advanced SQL">
+                                    <span class="topic-chip-text">📊 Data Engineering &amp; Advanced SQL</span>
+                                </label>
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic"
+                                        value="Cybersecurity & Ethical Hacking">
+                                    <span class="topic-chip-text">🔒 Cybersecurity &amp; Ethical Hacking</span>
+                                </label>
+                                <label class="topic-chip-label">
+                                    <input type="checkbox" name="improvement_topic"
+                                        value="System Design & Architecture">
+                                    <span class="topic-chip-text">🏗️ System Design &amp; Architecture</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Part 4: Website Improvement Question 2 (Clarity of learning paths) -->
+                        <div class="feedback-group">
+                            <label class="feedback-label">4. Website Improvement: How clear and intuitive are our
+                                learning paths and streak system?</label>
+                            <div class="clarity-options-grid">
+                                <label class="clarity-option-card">
+                                    <input type="radio" name="clarity_rating" value="very_clear" checked>
+                                    <div class="clarity-content">
+                                        <span class="clarity-icon">🟢</span>
+                                        <strong class="clarity-title">Very Clear &amp; Engaging</strong>
+                                        <span class="clarity-desc">Easy to track milestones and stay motivated.</span>
+                                    </div>
+                                </label>
+                                <label class="clarity-option-card">
+                                    <input type="radio" name="clarity_rating" value="moderate">
+                                    <div class="clarity-content">
+                                        <span class="clarity-icon">🟡</span>
+                                        <strong class="clarity-title">Good, Needs More Details</strong>
+                                        <span class="clarity-desc">Helpful, but could use step-by-step
+                                            checklists.</span>
+                                    </div>
+                                </label>
+                                <label class="clarity-option-card">
+                                    <input type="radio" name="clarity_rating" value="needs_improvement">
+                                    <div class="clarity-content">
+                                        <span class="clarity-icon">🔴</span>
+                                        <strong class="clarity-title">Could Be Simpler</strong>
+                                        <span class="clarity-desc">A bit hard to navigate or find what I need.</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Part 5: Open-ended suggestions -->
+                        <div class="feedback-group">
+                            <label for="feedback-comments-input" class="feedback-label">5. What is one specific feature
+                                or change that would make EduPath 10x better for you?</label>
+                            <textarea id="feedback-comments-input" name="comments" rows="4"
+                                placeholder="Tell us what's on your mind... (e.g. an interactive in-browser code editor, video speed controls, peer community discussions, dark/light theme switch, etc.)"
+                                required maxlength="2000"></textarea>
+                            <div class="char-counter" id="feedback-char-count">0 / 2000 characters</div>
+                        </div>
+
+                        <!-- Part 6: Contact & Beta Testing Opt-in (Optional) -->
+                        <div class="feedback-row-dual">
+                            <div class="form-group">
+                                <label for="feedback-name-input">Your Name (Optional)</label>
+                                <input type="text" id="feedback-name-input" placeholder="e.g. Alex Johnson">
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback-email-input">Your Email (Optional, for follow-up)</label>
+                                <input type="email" id="feedback-email-input" placeholder="alex@example.com">
+                            </div>
+                        </div>
+
+                        <label class="beta-optin-label">
+                            <input type="checkbox" id="feedback-beta-optin" name="beta_optin">
+                            <span>I'd like to participate in future user research or early beta testing for new
+                                features.</span>
+                        </label>
+
+                        <!-- Submit Button -->
+                        <div class="feedback-actions">
+                            <button type="submit" id="feedback-submit-btn" class="btn-primary feedback-submit-button">
+                                🚀 Submit Feedback &amp; Help Us Grow
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             9. CALL TO ACTION (CTA)
+             A high-visibility banner encouraging visitors to take immediate action.
+             ========================================================================== -->
+        <section class="cta-banner-section">
+            <div class="cta-banner-container">
+                <h2 class="cta-banner-title">Start your learning journey today.</h2>
+                <p class="cta-banner-subtitle">
+                    Join an empowering community of learners building real skills for tomorrow's technology landscape.
+                </p>
+                <div class="cta-banner-buttons">
+                    <a href="#categories" class="btn-primary">Get Started for Free</a>
+                    <a href="#resources" class="btn-secondary">Browse Roadmaps</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         9. FOOTER
+         Provides navigational links, resource directories, contact details, and copyright.
+         ========================================================================== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Brand Overview Column -->
+            <div class="footer-column brand-column">
+                <a href="#home" class="footer-logo">
+                    <span class="logo-icon">🎓</span>
+                    <span class="logo-text">EduPath</span>
+                </a>
+                <p class="footer-description">
+                    EduPath is dedicated to making modern technology education structured,
+                    accessible, and project-driven for ambitious learners worldwide.
+                </p>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#news">News Nexus</a></li>
+                    <li><a href="#feedback">Feedback &amp; Suggestions</a></li>
+                    <li><a href="#why-edupath">About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Learning Resources Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Learning Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener noreferrer">Harvard CS50</a>
+                    </li>
+                    <li><a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Coursera
+                            Programs</a></li>
+                    <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web
+                            Docs</a></li>
+                    <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python
+                            Documentation</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column" id="footer-contact">
+                <h3 class="footer-heading">Contact &amp; Support</h3>
+                <ul class="footer-links">
+                    <li><span>📍 Remote / Global Community</span></li>
+                    <li><span>✉️ support@edupath.org</span></li>
+                    <li><span>🕒 Mon - Fri: 9am - 6pm UTC</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 EduPath. All rights reserved. Built for learners worldwide.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         AUTHENTICATION MODAL DIALOG (Login & Sign Up)
+         Accessible modal containing both Login and Sign Up forms.
+         ========================================================================== -->
+    <dialog id="auth-modal" class="auth-modal" aria-labelledby="auth-modal-title">
+        <div class="auth-modal-header">
+            <div class="auth-tab-group" role="tablist" aria-label="Authentication Options">
+                <button type="button" id="tab-login-btn" class="auth-tab active" role="tab"
+                    aria-selected="true">Login</button>
+                <button type="button" id="tab-signup-btn" class="auth-tab" role="tab" aria-selected="false">Sign
+                    Up</button>
+            </div>
+            <button type="button" id="auth-modal-close" class="auth-close-btn"
+                aria-label="Close dialog">&times;</button>
+        </div>
+
+        <div class="auth-modal-body">
+            <!-- LOGIN FORM -->
+            <form id="login-form" class="auth-form" novalidate>
+                <h3 id="auth-modal-title" class="auth-form-title">Welcome Back to EduPath</h3>
+                <p class="auth-form-subtitle">Enter your credentials to continue your learning journey.</p>
+                <div class="auth-error-banner hidden" id="login-error-banner" role="alert"></div>
+
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" placeholder="e.g. learner@example.com" required
+                        autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password"
+                        required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-primary auth-submit-btn" id="login-submit-btn">Login to
+                    Account</button>
+            </form>
+
+            <!-- SIGN UP FORM -->
+            <form id="signup-form" class="auth-form hidden" novalidate>
+                <h3 class="auth-form-title">Create Your Learner Account</h3>
+                <p class="auth-form-subtitle">Start tracking your courses, streak, and project portfolio.</p>
+                <div class="auth-error-banner hidden" id="signup-error-banner" role="alert"></div>
+
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" name="name" placeholder="e.g. Alex Johnson" required
+                        autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" name="email" placeholder="e.g. alex@example.com" required
+                        autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password (minimum 8 characters)</label>
+                    <input type="password" id="signup-password" name="password" placeholder="Create a secure password"
+                        required autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="confirmPassword"
+                        placeholder="Confirm your password" required autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="btn-primary auth-submit-btn" id="signup-submit-btn">Create Account</button>
+            </form>
+
+            <!-- Social Authentication Section (OAuth 2.0: Google) -->
+            <div class="auth-divider" role="separator" aria-label="Social sign in separator">
+                <span>or continue with</span>
+            </div>
+
+            <div class="social-auth-container">
+                <a href="/api/auth/google" class="btn-social-auth btn-google" id="btn-google-auth"
+                    aria-label="Continue with Google">
+                    <svg class="google-svg-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"
+                        focusable="false">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                    <span>Continue with Google</span>
+                </a>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         ONBOARDING MODAL DIALOG (3-Step Learner Personalization)
+         Captures Role, Interests, and Learning Goal associated with user account.
+         ========================================================================== -->
+    <dialog id="onboarding-modal" class="auth-modal onboarding-modal" aria-labelledby="onboarding-modal-title">
+        <div class="auth-modal-header">
+            <div class="onboarding-progress-steps">
+                <span class="onboarding-step-indicator active" data-step="1">1. Role</span>
+                <span class="onboarding-step-divider">›</span>
+                <span class="onboarding-step-indicator" data-step="2">2. Interests</span>
+                <span class="onboarding-step-divider">›</span>
+                <span class="onboarding-step-indicator" data-step="3">3. Goal</span>
+            </div>
+            <button type="button" id="onboarding-modal-close" class="auth-close-btn"
+                aria-label="Close dialog">&times;</button>
+        </div>
+
+        <div class="auth-modal-body">
+            <div class="auth-error-banner hidden" id="onboarding-error-banner" role="alert"></div>
+
+            <!-- STEP 1: ROLE SELECTION -->
+            <div class="onboarding-step-pane" id="onboarding-step-1">
+                <h3 id="onboarding-modal-title" class="auth-form-title">What best describes your current role?</h3>
+                <p class="auth-form-subtitle">We'll tailor course recommendations based on your experience level.</p>
+
+                <div class="options-grid role-options">
+                    <label class="option-card">
+                        <input type="radio" name="user_role" value="student" checked>
+                        <div class="option-card-content">
+                            <span class="option-icon">🎓</span>
+                            <strong class="option-title">Student</strong>
+                            <span class="option-desc">High school, college, or university student preparing for tech
+                                careers.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="user_role" value="professional">
+                        <div class="option-card-content">
+                            <span class="option-icon">💼</span>
+                            <strong class="option-title">Working Professional</strong>
+                            <span class="option-desc">Currently employed and seeking to expand or modernize software
+                                skills.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="user_role" value="career_switcher">
+                        <div class="option-card-content">
+                            <span class="option-icon">🔄</span>
+                            <strong class="option-title">Career Switcher</strong>
+                            <span class="option-desc">Transitioning from a non-tech background into software
+                                development.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="user_role" value="hobbyist">
+                        <div class="option-card-content">
+                            <span class="option-icon">💡</span>
+                            <strong class="option-title">Self-Taught / Hobbyist</strong>
+                            <span class="option-desc">Learning programming out of curiosity and passion for building
+                                projects.</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- STEP 2: INTERESTS SELECTION (MULTI-SELECT) -->
+            <div class="onboarding-step-pane hidden" id="onboarding-step-2">
+                <h3 class="auth-form-title">Which topics are you most excited to learn?</h3>
+                <p class="auth-form-subtitle">Select one or more topics to customize your roadmaps.</p>
+
+                <div class="options-grid interests-options">
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="web_dev" checked>
+                        <div class="option-card-content">
+                            <span class="option-icon">🌐</span>
+                            <strong class="option-title">Web Development</strong>
+                            <span class="option-desc">HTML, CSS, JavaScript, and responsive modern applications.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="python">
+                        <div class="option-card-content">
+                            <span class="option-icon">🐍</span>
+                            <strong class="option-title">Python Programming</strong>
+                            <span class="option-desc">Automation, scripting, backend systems, and algorithms.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="ai_ml">
+                        <div class="option-card-content">
+                            <span class="option-icon">🤖</span>
+                            <strong class="option-title">AI &amp; Machine Learning</strong>
+                            <span class="option-desc">Neural networks, data models, prompt engineering, and
+                                GenAI.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="data_science">
+                        <div class="option-card-content">
+                            <span class="option-icon">📊</span>
+                            <strong class="option-title">Data Science &amp; Analytics</strong>
+                            <span class="option-desc">Data visualization, SQL queries, and predictive insights.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="cybersecurity">
+                        <div class="option-card-content">
+                            <span class="option-icon">🔒</span>
+                            <strong class="option-title">Cybersecurity</strong>
+                            <span class="option-desc">Network protection, encryption, secure code, and ethical
+                                defense.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card option-checkbox">
+                        <input type="checkbox" name="user_interests" value="mobile_dev">
+                        <div class="option-card-content">
+                            <span class="option-icon">📱</span>
+                            <strong class="option-title">Mobile App Development</strong>
+                            <span class="option-desc">iOS, Android, and cross-platform native smartphone apps.</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- STEP 3: LEARNING GOAL -->
+            <div class="onboarding-step-pane hidden" id="onboarding-step-3">
+                <h3 class="auth-form-title">What is your primary learning goal?</h3>
+                <p class="auth-form-subtitle">Setting a clear objective keeps your daily streak on target.</p>
+
+                <div class="options-grid goals-options">
+                    <label class="option-card">
+                        <input type="radio" name="learning_goal" value="job" checked>
+                        <div class="option-card-content">
+                            <span class="option-icon">💼</span>
+                            <strong class="option-title">Land a Tech Job / Internship</strong>
+                            <span class="option-desc">Focused on interview prep, clean code, and marketable
+                                skills.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="learning_goal" value="projects">
+                        <div class="option-card-content">
+                            <span class="option-icon">🚀</span>
+                            <strong class="option-title">Build Real-World Projects</strong>
+                            <span class="option-desc">Bring your own startup ideas and creative web apps to life.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="learning_goal" value="upskill">
+                        <div class="option-card-content">
+                            <span class="option-icon">📈</span>
+                            <strong class="option-title">Upskill for My Current Career</strong>
+                            <span class="option-desc">Automate work tasks and gain technical edge in your
+                                workplace.</span>
+                        </div>
+                    </label>
+
+                    <label class="option-card">
+                        <input type="radio" name="learning_goal" value="explore">
+                        <div class="option-card-content">
+                            <span class="option-icon">💡</span>
+                            <strong class="option-title">Learn Coding for Fun &amp; Curiosity</strong>
+                            <span class="option-desc">Enjoy creative problem solving without high-pressure
+                                deadlines.</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MODAL ACTION BUTTONS -->
+            <div class="onboarding-actions">
+                <button type="button" id="onboarding-prev-btn" class="btn-secondary hidden">Back</button>
+                <button type="button" id="onboarding-next-btn" class="btn-primary">Continue</button>
+                <button type="button" id="onboarding-submit-btn" class="btn-primary hidden">Save &amp; Complete
+                    Profile</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         QUIZ MODAL DIALOG (Meaningful Activity: quiz_completed)
+         Interactive 3-question knowledge check to verify learning and build streaks.
+         ========================================================================== -->
+    <dialog id="quiz-modal" class="auth-modal learning-action-modal" aria-labelledby="quiz-modal-title">
+        <div class="auth-modal-header">
+            <div class="action-modal-title-group">
+                <span class="action-modal-icon">🧠</span>
+                <div>
+                    <h3 id="quiz-modal-title" class="auth-form-title">Knowledge Check</h3>
+                    <p class="auth-form-subtitle">Complete a quiz to earn XP and extend your daily learning streak</p>
+                </div>
+            </div>
+            <button type="button" id="quiz-modal-close" class="auth-close-btn"
+                aria-label="Close dialog">&times;</button>
+        </div>
+
+        <div class="auth-modal-body">
+            <div class="quiz-topic-selector">
+                <span class="quiz-topic-label">Choose Topic:</span>
+                <div class="quiz-topic-buttons">
+                    <button type="button" class="btn-quiz-topic active" data-topic="web_dev">💻 Web Dev</button>
+                    <button type="button" class="btn-quiz-topic" data-topic="python">🐍 Python</button>
+                    <button type="button" class="btn-quiz-topic" data-topic="ai_ml">🤖 AI &amp; ML</button>
+                </div>
+            </div>
+
+            <form id="quiz-form" class="quiz-form">
+                <div id="quiz-questions-container" class="quiz-questions-container">
+                    <!-- Injected dynamically by script.js -->
+                </div>
+
+                <div class="quiz-footer-actions">
+                    <div id="quiz-result-banner" class="quiz-result-banner hidden" role="status"></div>
+                    <button type="submit" id="quiz-submit-btn" class="btn-primary">Submit Answers &amp; Record
+                        Streak</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         PROJECT SUBMISSION MODAL DIALOG (Meaningful Activity: project_submitted)
+         Submit real-world projects and code repositories to count toward streak.
+         ========================================================================== -->
+    <dialog id="project-modal" class="auth-modal learning-action-modal" aria-labelledby="project-modal-title">
+        <div class="auth-modal-header">
+            <div class="action-modal-title-group">
+                <span class="action-modal-icon">🚀</span>
+                <div>
+                    <h3 id="project-modal-title" class="auth-form-title">Submit Capstone Project</h3>
+                    <p class="auth-form-subtitle">Document completed code to record a verified learning milestone</p>
+                </div>
+            </div>
+            <button type="button" id="project-modal-close" class="auth-close-btn"
+                aria-label="Close dialog">&times;</button>
+        </div>
+
+        <div class="auth-modal-body">
+            <div class="auth-error-banner hidden" id="project-error-banner" role="alert"></div>
+
+            <form id="project-form" class="project-form">
+                <div class="form-group">
+                    <label for="project-course-select">Related Course / Path</label>
+                    <select id="project-course-select" class="form-input-select" required>
+                        <option value="web-cs50w">Harvard CS50's Web Programming (Python/JS)</option>
+                        <option value="web-mdn-basics">MDN Web Docs: Web Development Curriculum</option>
+                        <option value="web-coursera-meta">Meta Front-End Developer Certificate</option>
+                        <option value="web-youtube-netninja">The Net Ninja Modern JavaScript</option>
+                        <option value="py-cs50p">Harvard CS50's Intro to Programming with Python</option>
+                        <option value="py-coursera-michigan">Python for Everybody (Univ of Michigan)</option>
+                        <option value="py-official-docs">Python 3 Tutorial &amp; Standard Library</option>
+                        <option value="py-youtube-corey">Corey Schafer Python OOP &amp; Engineering</option>
+                        <option value="ai-cs50-ai">Harvard CS50's Intro to AI with Python</option>
+                        <option value="ai-coursera-deeplearning">Andrew Ng Machine Learning Specialization</option>
+                        <option value="ai-google-mlcc">Google Machine Learning Crash Course</option>
+                        <option value="ai-youtube-statquest">StatQuest Machine Learning Fundamentals</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-title-input">Project Title</label>
+                    <input type="text" id="project-title-input"
+                        placeholder="e.g. Responsive Portfolio Website / Weather API App" required maxlength="120">
+                </div>
+
+                <div class="form-group">
+                    <label for="project-url-input">Project or GitHub Repository URL</label>
+                    <input type="url" id="project-url-input" placeholder="https://github.com/your-username/your-project"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-notes-input">Key Learnings &amp; Summary (Optional)</label>
+                    <textarea id="project-notes-input" rows="3"
+                        placeholder="Briefly describe the technologies used and challenges solved..."></textarea>
+                </div>
+
+                <div class="project-footer-actions">
+                    <button type="submit" id="project-submit-btn" class="btn-primary">Submit Project &amp; Record
+                        Streak</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         COMMUNITY RESOURCE RECOMMENDATION MODAL
+         Allows authenticated students to submit a YouTube study recommendation.
+         ========================================================================== -->
+    <dialog id="community-resource-modal" class="auth-modal community-resource-modal" aria-labelledby="community-modal-title">
+        <div class="auth-modal-header">
+            <h3 id="community-modal-title" class="auth-form-title">Recommend a Study Resource</h3>
+            <button type="button" id="community-modal-close" class="auth-close-btn" aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="auth-modal-body">
+            <p class="auth-form-subtitle">Share an educational YouTube video with fellow EduPath learners.</p>
+            <div class="auth-error-banner hidden" id="community-form-error" role="alert"></div>
+
+            <form id="community-resource-form" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="comm-youtube-url">YouTube URL <span class="required-star">*</span></label>
+                    <input type="url" id="comm-youtube-url" name="youtube_url" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..." required>
+                    <small class="field-hint">Supports standard watch links, youtu.be, shorts, and embed URLs.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="comm-category">Subject / Category <span class="required-star">*</span></label>
+                    <select id="comm-category" name="category" class="form-input-select" required>
+                        <option value="">Select a category...</option>
+                        <option value="web_dev">Web Development</option>
+                        <option value="python">Python Programming</option>
+                        <option value="ai_ml">AI &amp; Machine Learning</option>
+                        <option value="data_science">Data Science &amp; Analytics</option>
+                        <option value="programming">Computer Science &amp; Programming</option>
+                        <option value="other">Other Technical Topic</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comm-title">Resource Title <span class="required-star">*</span></label>
+                    <input type="text" id="comm-title" name="title" placeholder="e.g. Python Functions &amp; Variable Scope Explained" required maxlength="255">
+                </div>
+
+                <div class="form-group">
+                    <label for="comm-topic">Topic (Optional)</label>
+                    <input type="text" id="comm-topic" name="topic" placeholder="e.g. Functions, Docker, Flexbox, Neural Networks" maxlength="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="comm-description">Short Description (Optional)</label>
+                    <textarea id="comm-description" name="description" rows="3" placeholder="Briefly describe what concepts this video teaches..." maxlength="2000"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="comm-reason">Why do you recommend this? (Optional)</label>
+                    <textarea id="comm-reason" name="reason" rows="2" placeholder="e.g. Great visual breakdown of difficult concepts for beginners!" maxlength="1000"></textarea>
+                </div>
+
+                <!-- Optional Contributor Social Profile -->
+                <div class="optional-social-section">
+                    <h4 class="social-section-title">Public Contributor Recognition (Optional)</h4>
+                    <p class="social-section-desc">If you are among the first 3 learners to recommend this video, you'll be featured on the Early Contributor podium.</p>
+                    
+                    <div class="social-inputs-grid">
+                        <div class="form-group">
+                            <label for="comm-social-github">GitHub Handle</label>
+                            <input type="text" id="comm-social-github" placeholder="e.g. your-github-user" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="comm-social-linkedin">LinkedIn Profile URL</label>
+                            <input type="text" id="comm-social-linkedin" placeholder="e.g. linkedin.com/in/username" maxlength="255">
+                        </div>
+                        <div class="form-group">
+                            <label for="comm-social-instagram">Instagram Handle</label>
+                            <input type="text" id="comm-social-instagram" placeholder="e.g. @your_username" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="comm-social-other">Website / Portfolio</label>
+                            <input type="text" id="comm-social-other" placeholder="e.g. https://yourwebsite.com" maxlength="255">
+                        </div>
+                    </div>
+
+                    <label class="social-optin-checkbox-label">
+                        <input type="checkbox" id="comm-social-optin" name="show_social_links">
+                        <span>Make my social handles publicly visible on the Contributor Podium (Strict Opt-In).</span>
+                    </label>
+                </div>
+
+                <div class="community-modal-actions">
+                    <button type="submit" id="comm-submit-btn" class="btn-primary">Recommend Resource</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- ==========================================================================
+         COMMUNITY RESOURCE DETAILS & EARLY CONTRIBUTORS MODAL
+         ========================================================================== -->
+    <dialog id="community-resource-details-modal" class="auth-modal community-details-modal" aria-labelledby="comm-details-title">
+        <div class="auth-modal-header">
+            <h3 id="comm-details-title" class="auth-form-title">Resource Details</h3>
+            <button type="button" id="comm-details-close" class="auth-close-btn" aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="auth-modal-body" id="comm-details-body">
+            <!-- Dynamically populated by script.js -->
+        </div>
+    </dialog>
+
+    <!-- Interactive Logic: External Vanilla JavaScript File -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -2159,8 +2159,8 @@ async function loadCommunityResources() {
 
                         <div class="community-card-footer">
                             <div class="comm-rec-counter-row">
-                                <span class="comm-rec-counter" id="rec-count-${r.id}">
-                                    ⭐ ${recCount} ${recCount === 1 ? 'recommendation' : 'recommendations'}
+                                <span class="comm-rec-counter" id="rec-count-${r.id}" title="${recCount} unique student recommendation${recCount === 1 ? '' : 's'}">
+                                    ⭐ ${formatRecommendationCount(recCount)}
                                 </span>
                             </div>
 
@@ -2196,6 +2196,20 @@ async function loadCommunityResources() {
             retryBtn.addEventListener('click', loadCommunityResources);
         }
     }
+}
+
+/**
+ * Helper to format unique recommendation count according to UX requirements:
+ * "1 student recommended this"
+ * "7 students recommended this"
+ * "100 students recommended this"
+ */
+function formatRecommendationCount(count) {
+    const num = parseInt(count, 10) || 0;
+    if (num === 1) {
+        return '1 student recommended this';
+    }
+    return `${num.toLocaleString()} students recommended this`;
 }
 
 /**
@@ -2249,7 +2263,7 @@ async function handleRecommendResource(resourceId, btn) {
         if (response.status === 409 || data.alreadyRecommended) {
             btn.classList.add('recommended');
             btn.textContent = '✓ Recommended';
-            showNotification('You have already recommended this learning resource.');
+            showNotification(data.error || 'You have already recommended this learning resource.');
             return;
         }
 
@@ -2265,10 +2279,16 @@ async function handleRecommendResource(resourceId, btn) {
         btn.textContent = '✓ Recommended';
 
         // Update counter on the card directly
+        const count = data.recommendation_count !== undefined ? data.recommendation_count : 1;
         const counterEl = document.getElementById(`rec-count-${resourceId}`);
-        if (counterEl && data.recommendation_count !== undefined) {
-            const count = data.recommendation_count;
-            counterEl.textContent = `⭐ ${count} ${count === 1 ? 'recommendation' : 'recommendations'}`;
+        if (counterEl) {
+            counterEl.textContent = `⭐ ${formatRecommendationCount(count)}`;
+        }
+
+        // Update counter in modal if open
+        const modalCounterEl = document.getElementById(`modal-rec-count-${resourceId}`);
+        if (modalCounterEl) {
+            modalCounterEl.textContent = `⭐ ${formatRecommendationCount(count)}`;
         }
 
         showNotification(data.message || '🎉 Thank you for your recommendation!');
@@ -2435,6 +2455,7 @@ async function handleSuggestResourceFormSubmit(event) {
                 errorBanner.textContent = data.error || 'You have already recommended this learning resource.';
                 errorBanner.classList.remove('hidden');
             }
+            showNotification(data.error || 'You have already recommended this learning resource.');
             return;
         }
 
@@ -2443,6 +2464,7 @@ async function handleSuggestResourceFormSubmit(event) {
                 errorBanner.textContent = data.error || 'Failed to submit learning resource.';
                 errorBanner.classList.remove('hidden');
             }
+            showNotification(data.error || 'Failed to submit learning resource.');
             return;
         }
 
@@ -2450,11 +2472,36 @@ async function handleSuggestResourceFormSubmit(event) {
         const modal = document.getElementById('community-resource-modal');
         if (modal) modal.close();
 
-        showNotification(data.message || '🎉 Thank you! Resource recommended to the community.');
+        // Format success toast with real backend count
+        const recCount = data.resource?.recommendation_count;
+        const countSuffix = recCount !== undefined
+            ? ` (${formatRecommendationCount(recCount)})`
+            : '';
+        showNotification((data.message || '🎉 Thank you! Resource recommended to the community.') + countSuffix);
         form.reset();
 
-        // Refresh the community resource cards
+        // If the submitted resource's category is filtered out, reset category to 'all' so it is visible
+        if (currentCommunityCategory !== 'all' && data.resource?.category && data.resource.category !== currentCommunityCategory) {
+            currentCommunityCategory = 'all';
+            const allBtn = document.querySelector('#community-category-filters .btn-community-filter[data-category="all"]');
+            if (allBtn) {
+                document.querySelectorAll('#community-category-filters .btn-community-filter').forEach(b => b.classList.remove('active'));
+                allBtn.classList.add('active');
+            }
+        }
+
+        // Refresh the community resource cards immediately
         await loadCommunityResources();
+
+        // Highlight and scroll the newly recommended resource card into view
+        if (data.resource && data.resource.id) {
+            const targetCard = document.querySelector(`.community-card[data-resource-id="${data.resource.id}"]`);
+            if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                targetCard.classList.add('pulse-highlight');
+                setTimeout(() => targetCard.classList.remove('pulse-highlight'), 3000);
+            }
+        }
 
     } catch (err) {
         console.error('❌ [handleSuggestResourceFormSubmit Error]:', err);
@@ -2606,7 +2653,7 @@ async function openResourceDetailsModal(resourceId) {
                 <div class="comm-details-status-row">
                     ${statusBadge}
                     <span class="comm-category-badge" style="position:static;">${categoryName}</span>
-                    <strong style="color:var(--color-sand);">⭐ ${recCount} ${recCount === 1 ? 'recommendation' : 'recommendations'}</strong>
+                    <strong id="modal-rec-count-${r.id}" class="comm-details-rec-count" style="color:var(--color-sand);" title="${recCount} unique student recommendation${recCount === 1 ? '' : 's'}">⭐ ${formatRecommendationCount(recCount)}</strong>
                 </div>
 
                 <h3 class="comm-details-title">${title}</h3>

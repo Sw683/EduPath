@@ -1524,7 +1524,7 @@ a:focus-visible {
     color: #fca5a5;
 }
 
-/* Auth Dialog Modal */
+/* Auth & Accessible Dialog Modals */
 .auth-modal {
     background: var(--color-bg-surface);
     border: 1px solid var(--color-border-hover);
@@ -1533,9 +1533,21 @@ a:focus-visible {
     color: var(--color-text-main);
     max-width: 460px;
     width: 90%;
+    max-height: 90vh;
+    max-height: 90dvh;
     margin: auto;
     padding: 0;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+.auth-modal:not([open]) {
+    display: none;
+}
+
+.auth-modal[open] {
+    display: flex;
+    flex-direction: column;
 }
 
 .auth-modal::backdrop {
@@ -1550,6 +1562,7 @@ a:focus-visible {
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
 }
 
 .auth-tab-group {
@@ -1605,6 +1618,29 @@ a:focus-visible {
 
 .auth-modal-body {
     padding: 1.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.auth-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.auth-modal-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.auth-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(132, 204, 22, 0.3);
+    border-radius: var(--radius-full);
+}
+
+.auth-modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(132, 204, 22, 0.6);
 }
 
 .auth-form {
@@ -3489,6 +3525,8 @@ a:focus-visible {
 .community-details-modal {
     max-width: 640px;
     width: 92%;
+    max-height: 90vh;
+    max-height: 90dvh;
 }
 
 .field-hint {
@@ -3548,6 +3586,25 @@ a:focus-visible {
     display: flex;
     justify-content: flex-end;
     margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.community-modal-actions .btn-primary {
+    min-height: 44px;
+}
+
+/* Card Recommendation Pulse Highlight Animation */
+@keyframes cardHighlight {
+    0% { box-shadow: 0 0 0 0 rgba(132, 204, 22, 0.7); border-color: var(--color-primary-light); }
+    50% { box-shadow: 0 0 25px 4px rgba(132, 204, 22, 0.5); border-color: var(--color-primary-light); }
+    100% { box-shadow: var(--shadow-card); }
+}
+
+.community-card.pulse-highlight {
+    animation: cardHighlight 2.5s ease;
+    border-color: var(--color-primary-light);
 }
 
 /* Details Modal & Contributors Podium */
@@ -3992,6 +4049,35 @@ a:focus-visible {
     .cta-banner-title {
         font-size: 1.8rem;
     }
+
+    /* Accessible Dialog Modals on Tablet/Mobile */
+    .auth-modal {
+        width: 95%;
+        max-height: 92vh;
+        max-height: 92dvh;
+        border-radius: var(--radius-md);
+    }
+
+    .auth-modal-header {
+        padding: 1rem 1.25rem;
+    }
+
+    .auth-modal-body {
+        padding: 1.25rem;
+    }
+
+    .community-modal-actions {
+        justify-content: stretch;
+    }
+
+    .community-modal-actions .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+        white-space: normal;
+        word-break: break-word;
+    }
 }
 
 /* Ultra-Compact Mobile Screens (max-width: 480px) */
@@ -4053,5 +4139,23 @@ a:focus-visible {
 
     .user-banner-stat-box {
         width: 100%;
+    }
+
+    .auth-modal {
+        width: 96%;
+        max-height: 94vh;
+        max-height: 94dvh;
+    }
+
+    .auth-modal-header {
+        padding: 0.85rem 1rem;
+    }
+
+    .auth-modal-body {
+        padding: 1rem 0.85rem;
+    }
+
+    .optional-social-section {
+        padding: 0.85rem 0.75rem;
     }
 }

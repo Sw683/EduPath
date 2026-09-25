@@ -2804,6 +2804,172 @@ function setupCommunityResourcesSystem() {
 }
 
 /**
+ * ==========================================================================
+ * Government Internships Directory Controller (Client-Side Filter & Search)
+ * ==========================================================================
+ * Purpose:
+ * Provides instant, client-side filtering and multi-attribute search for
+ * official Government of India internship opportunities without backend/database.
+ */
+function setupInternshipsDirectory() {
+    const grid = document.getElementById('internships-grid');
+    if (!grid) return;
+
+    const searchInput = document.getElementById('internship-search-input');
+    const clearSearchBtn = document.getElementById('btn-clear-search');
+    const categoryButtons = document.querySelectorAll('.category-pills-group .btn-cat-pill');
+    const typeSelect = document.getElementById('internship-type-select');
+    const countBadge = document.getElementById('internships-count-badge');
+    const resetFiltersBtn = document.getElementById('btn-reset-filters');
+    const emptyState = document.getElementById('internships-empty-state');
+    const emptyResetBtn = document.getElementById('btn-empty-reset');
+    const cards = Array.from(grid.querySelectorAll('.internship-card'));
+
+    let activeCategory = 'all';
+    let activeType = 'all';
+    let searchQuery = '';
+
+    function filterInternships() {
+        const query = searchQuery.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+            const cardCategories = (card.getAttribute('data-categories') || '').toLowerCase().split(' ');
+            const cardType = card.getAttribute('data-type') || 'all';
+            const cardText = card.textContent.toLowerCase();
+
+            const matchesCategory = (activeCategory === 'all') || cardCategories.includes(activeCategory);
+            const matchesType = (activeType === 'all') || (cardType === activeType);
+            const matchesQuery = !query || cardText.includes(query);
+
+            if (matchesCategory && matchesType && matchesQuery) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Update count badge
+        if (countBadge) {
+            countBadge.textContent = `Showing ${visibleCount} of ${cards.length} official programmes`;
+        }
+
+        // Toggle reset button visibility if any filter is active
+        const isFiltered = (activeCategory !== 'all') || (activeType !== 'all') || (query.length > 0);
+        if (resetFiltersBtn) {
+            if (isFiltered) {
+                resetFiltersBtn.classList.remove('hidden');
+            } else {
+                resetFiltersBtn.classList.add('hidden');
+            }
+        }
+
+        // Show/hide empty state
+        if (emptyState) {
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        }
+    }
+
+    function resetAllFilters() {
+        activeCategory = 'all';
+        activeType = 'all';
+        searchQuery = '';
+
+        if (searchInput) searchInput.value = '';
+        if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+        if (typeSelect) typeSelect.value = 'all';
+
+        categoryButtons.forEach((btn) => {
+            const cat = btn.getAttribute('data-category');
+            if (cat === 'all') {
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+            } else {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        filterInternships();
+    }
+
+    // 1. Search Input Listener
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            searchQuery = searchInput.value;
+            if (clearSearchBtn) {
+                if (searchQuery.trim().length > 0) {
+                    clearSearchBtn.classList.remove('hidden');
+                } else {
+                    clearSearchBtn.classList.add('hidden');
+                }
+            }
+            filterInternships();
+        });
+    }
+
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            filterInternships();
+            if (searchInput) searchInput.focus();
+        });
+    }
+
+    // 2. Category Pill Filter Buttons
+    categoryButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            categoryButtons.forEach((b) => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            activeCategory = btn.getAttribute('data-category') || 'all';
+            filterInternships();
+        });
+    });
+
+    // 3. Internship Type Dropdown Listener
+    if (typeSelect) {
+        typeSelect.addEventListener('change', () => {
+            activeType = typeSelect.value || 'all';
+            filterInternships();
+        });
+    }
+
+    // 4. Reset Filters Buttons
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', resetAllFilters);
+    }
+    if (emptyResetBtn) {
+        emptyResetBtn.addEventListener('click', resetAllFilters);
+    }
+
+    // 5. Official Portal Guidance Notifications
+    const portalButtons = grid.querySelectorAll('.btn-official-portal');
+    portalButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.internship-card');
+            const titleEl = card ? card.querySelector('.programme-title') : null;
+            const title = titleEl ? titleEl.textContent.trim() : 'Official Portal';
+            showNotification(`Opening ${title} official portal in a new tab. Verify current eligibility and deadlines before applying!`);
+        });
+    });
+
+    // Initial filter pass
+    filterInternships();
+}
+
+/**
  * Main application initialization function.
  * Ensures the HTML document is fully parsed before attaching event listeners.
  */
@@ -2827,6 +2993,7 @@ function initializeEduPath() {
     setupNewsAutoUpdate();
     setupNewsTakeaways();
     setupCommunityResourcesSystem();
+    setupInternshipsDirectory();
 }
 
 // Ensure DOM is ready before executing initialization

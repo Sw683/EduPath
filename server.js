@@ -173,6 +173,10 @@ app.get(['/', '/index.html'], (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get(['/internships', '/internships.html'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'internships.html'));
+});
+
 // 5. Fallback route to serve index.html for client-side single-page routing
 // Explicitly blocks access to dotfiles (e.g. .env, .git), files with extensions, and unknown API routes
 app.get('*', (req, res) => {

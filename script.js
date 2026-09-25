@@ -2137,12 +2137,12 @@ async function loadCommunityResources() {
             // Thumbnail URL
             const thumbUrl = videoId
                 ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
-                : 'images/game-animated-bg.gif';
+                : 'images/game-bg-static.webp';
 
             gridHtml += `
                 <article class="community-card" data-resource-id="${r.id}">
                     <div class="community-card-thumbnail">
-                        <img src="${thumbUrl}" alt="${title}" loading="lazy" onerror="this.src='images/game-animated-bg.gif'">
+                        <img src="${thumbUrl}" alt="${title}" loading="lazy" onerror="this.src='images/game-bg-static.webp'">
                         <span class="comm-yt-badge">▶ YouTube</span>
                         <span class="comm-category-badge">${categoryName}</span>
                     </div>
@@ -2970,10 +2970,83 @@ function setupInternshipsDirectory() {
 }
 
 /**
+ * Configures the mobile responsive navigation toggle menu.
+ * Handles opening, closing, link click auto-close, escape key, and outside click.
+ */
+function setupMobileNavigation() {
+    const toggleBtn = document.getElementById('nav-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    if (!toggleBtn || !mainNav) return;
+
+    function openMenu() {
+        toggleBtn.classList.add('is-active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        toggleBtn.setAttribute('aria-label', 'Close navigation menu');
+        mainNav.classList.add('is-open');
+    }
+
+    function closeMenu() {
+        toggleBtn.classList.remove('is-active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+        mainNav.classList.remove('is-open');
+    }
+
+    function toggleMenu() {
+        const isOpen = mainNav.classList.contains('is-open');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    // Toggle on hamburger button click
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Close menu when selecting any navigation link
+    const navLinks = mainNav.querySelectorAll('.nav-link');
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+            closeMenu();
+            toggleBtn.focus();
+        }
+    });
+
+    // Close on click outside header
+    document.addEventListener('click', (e) => {
+        if (mainNav.classList.contains('is-open')) {
+            const header = document.querySelector('.site-header');
+            if (header && !header.contains(e.target)) {
+                closeMenu();
+            }
+        }
+    });
+
+    // Auto-close menu if viewport is resized to desktop width
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 991 && mainNav.classList.contains('is-open')) {
+            closeMenu();
+        }
+    });
+}
+
+/**
  * Main application initialization function.
  * Ensures the HTML document is fully parsed before attaching event listeners.
  */
 function initializeEduPath() {
+    setupMobileNavigation();
     setupSmoothNavigation();
     setupScrollSpy();
     setupCourseCategoryInteractions();

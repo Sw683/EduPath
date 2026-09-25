@@ -25,8 +25,15 @@
                 <span class="logo-text">EduPath</span>
             </a>
 
+            <!-- Mobile Navigation Toggle Button -->
+            <button type="button" class="btn-hamburger" id="nav-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+
             <!-- Primary Navigation Links -->
-            <nav class="main-nav" aria-label="Main Navigation">
+            <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#courses" class="nav-link">Courses</a></li>
@@ -80,8 +87,11 @@
                 <!-- Visual Media Reference -->
                 <div class="hero-media-wrapper">
                     <figure class="hero-figure">
-                        <img src="images/hero.jpg" alt="Students learning modern technology together in a classroom"
-                            class="hero-image" width="650" height="420">
+                        <picture>
+                            <source srcset="images/hero.webp" type="image/webp">
+                            <img src="images/hero.jpg" alt="Students learning modern technology together in a classroom"
+                                class="hero-image" width="650" height="420" fetchpriority="high">
+                        </picture>
                         <figcaption class="hero-caption">Join thousands of students learning modern tech skills every
                             day.</figcaption>
                     </figure>
@@ -105,8 +115,11 @@
                 <!-- Category 1: Web Development -->
                 <article class="category-card">
                     <div class="card-image-container">
-                        <img src="images/web-development.jpg" alt="Web development workspace with code on screens"
-                            class="card-image">
+                        <picture>
+                            <source srcset="images/web-development.webp" type="image/webp">
+                            <img src="images/web-development.jpg" alt="Web development workspace with code on screens"
+                                class="card-image" loading="lazy" width="650" height="365">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <div class="card-header-info">
@@ -124,8 +137,11 @@
                 <!-- Category 2: Python Programming -->
                 <article class="category-card">
                     <div class="card-image-container">
-                        <img src="images/python-programming.jpg" alt="Python programming code and data scripts"
-                            class="card-image">
+                        <picture>
+                            <source srcset="images/python-programming.webp" type="image/webp">
+                            <img src="images/python-programming.jpg" alt="Python programming code and data scripts"
+                                class="card-image" loading="lazy" width="650" height="365">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <div class="card-header-info">
@@ -143,8 +159,11 @@
                 <!-- Category 3: AI & Machine Learning -->
                 <article class="category-card">
                     <div class="card-image-container">
-                        <img src="images/ai-machine-learning.jpg"
-                            alt="Abstract digital neural network representing machine learning" class="card-image">
+                        <picture>
+                            <source srcset="images/ai-machine-learning.webp" type="image/webp">
+                            <img src="images/ai-machine-learning.jpg"
+                                alt="Abstract digital neural network representing machine learning" class="card-image" loading="lazy" width="650" height="365">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <div class="card-header-info">
